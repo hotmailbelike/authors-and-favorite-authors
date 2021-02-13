@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-const ListItemComponent = ({ name, bio, link }) => {
-	const [isFavorite, setIsFavorite] = useState(false);
+const ListItemComponent = ({ name, bio, link, _id, isFav, index, addFav, removeFav }) => {
 	return (
 		<div className='d-flex justify-content-between ListItemComponent'>
-			<div>
+			<div style={{ width: '75%' }}>
 				<h4>Name: {name}</h4>
 				<h4>Bio: {bio}</h4>
 				<h4>
@@ -13,8 +12,13 @@ const ListItemComponent = ({ name, bio, link }) => {
 				</h4>
 			</div>
 			<div>
-				<Button variant='outline-primary' onClick={() => setIsFavorite((val) => !val)}>
-					{isFavorite ? 'Remove Favorite' : 'Add Favorite'}
+				<Button
+					variant='outline-primary'
+					onClick={() => {
+						isFav ? removeFav(index, _id) : addFav(index, bio, link, name, _id);
+					}}
+				>
+					{isFav ? 'Remove Favorite' : 'Add Favorite'}
 				</Button>
 			</div>
 		</div>

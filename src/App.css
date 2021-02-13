@@ -7,7 +7,7 @@ body {
 .sidebar {
 	width: 10% !important;
 	border-right: black 3px solid !important;
-	height: calc(270vh);
+	height: calc(280vh);
 }
 
 .content {
